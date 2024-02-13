@@ -4,9 +4,26 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:savichev27pr.Pages.Afisha.Items"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             mc:Ignorable="d">
+    <Grid Margin="20" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100px"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Height="52" VerticalAlignment="Top" Margin="24,10,24,0" Source="/Images/afisha.png"/>
+        <Label Content="Кинотеатр" Grid.Column="1" VerticalAlignment="Top" Margin="10"/>
+        <TextBox x:Name="kinoteatrs" Height="25" Grid.Column="1" Margin="10,36,10,0" VerticalAlignment="Top" IsEnabled="False"/>
+        <Label Content="Наименование" Grid.Column="1" VerticalAlignment="Top" Margin="10,66,10,0"/>
+        <TextBox x:Name="name"  Height="25" Grid.Column="1" Margin="10,92,10,0" VerticalAlignment="Top" IsEnabled="False"/>
+        <Label Content="Дата" Grid.Column="2" VerticalAlignment="Top" Margin="10,10,165,0"/>
+        <DatePicker x:Name="date" Height="25" Grid.Column="2" Margin="10,36,165,0" VerticalAlignment="Top" IsEnabled="False"/>
+        <Label Content="Стоимость" Grid.Column="2" VerticalAlignment="Top" Margin="10,66,10,0"/>
+        <TextBox x:Name="price" Height="25" Grid.Column="2" Margin="10,92,10,0" VerticalAlignment="Top" IsEnabled="False"/>
+        <TextBox x:Name="time" Height="25" Grid.Column="2" Margin="181,36,10,0" VerticalAlignment="Top" IsEnabled="False"/>
+        <Label Content="Время" Grid.Column="2" VerticalAlignment="Top" Margin="181,10,10,0"/>
+        <Button Click="EditRecord"  Content="Изменить" Height="25" Width="80" Background="Green" Foreground="White" Margin="0,70,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Button Click="DeleteRecord" Content="Удалить" Height="25" Width="80" Background="Red" Foreground="White" Margin="0,100,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"/>
     </Grid>
 </UserControl>

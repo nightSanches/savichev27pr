@@ -16,7 +16,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Image Width="80" Height="80" VerticalAlignment="Top" Margin="10" Source="/Images/kino.png"/>
+            <Image Width="80" Height="80" VerticalAlignment="Top" Margin="10" Source="/Images/afisha.png"/>
             <Label Content="Кинотеатр" Grid.Column="1" VerticalAlignment="Top" Margin="10"/>
             <ComboBox x:Name="kinoteatrs" Height="25" Grid.Column="1" Margin="10,36,10,0" VerticalAlignment="Top"/>
             <Label Content="Наименование" Grid.Column="1" VerticalAlignment="Top" Margin="10,66,10,0"/>

@@ -194,7 +194,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\afisha.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\kino.png" />
   </ItemGroup>

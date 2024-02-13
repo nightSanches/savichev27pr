@@ -16,13 +16,13 @@ namespace savichev27pr.Classes
         public static List<KinoteatrContext> Select()
         {
             List<KinoteatrContext> AllKinoteatrs = new List<KinoteatrContext>();
-            string SQL = "SELECT * FROM `kinoteatr`";
+            string SQL = "SELECT * FROM `kinoteatr`;";
             MySqlConnection connection = Connection.OpenConnection();
             MySqlDataReader Data = Connection.Query(SQL, connection);
             while (Data.Read())
             {
                 AllKinoteatrs.Add(new KinoteatrContext( 
-                    Data.GetInt32(0),
+                    Data.GetInt32(0), 
                     Data.GetString(1),
                     Data.GetInt32(2),
                     Data.GetInt32(3)));

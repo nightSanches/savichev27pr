@@ -27,7 +27,7 @@ namespace savichev27pr
         public MainWindow()
         {
             InitializeComponent();
-            OpenPage(new Pages.Kinoteatr.Main());
+            OpenPage(new Pages.Afisha.Main());
             init = this;
         }
 

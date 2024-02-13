@@ -30,8 +30,9 @@ namespace savichev27pr.Pages.Afisha
 
             foreach(var item in AllKinoteatrs)
             {
-                kinoteatrs.Items.Add(item);
+                kinoteatrs.Items.Add(item.Name);
             }
+            kinoteatrs.Items.Add("Выберите...");
 
             if (afisha != null)
             {
@@ -43,33 +44,47 @@ namespace savichev27pr.Pages.Afisha
                 price.Text = afisha.Price.ToString();
                 bthAdd.Content = "Изменить";
             }
+            else
+            {
+                kinoteatrs.SelectedIndex = kinoteatrs.Items.Count - 1;
+            }
         }
 
         private void AddRecord(object sender, RoutedEventArgs e)
         {
-            int countZalInt = -1;
-            int countInt = -1;
+            TimeSpan timeAfisha;
+            int pprice = -1
             if (name.Text == "")
             {
                 MessageBox.Show("Не заполнено наименоваие");
                 return;
             }
-            if (countZal.Text == "" || int.TryParse(countZal.Text, out countZalInt) == false)
+            if (kinoteatrs.SelectedIndex  == kinoteatrs.Items.Count-1)
             {
-                MessageBox.Show("Не заполнено количество залов");
+                MessageBox.Show("Выберите кинотеатр");
                 return;
             }
-            if (count.Text == "" || int.TryParse(count.Text, out countInt) == false)
+            if (date.Text == "")
             {
-                MessageBox.Show("Не заполнено количество мест");
+                MessageBox.Show("Не заполнена дата");
                 return;
             }
-
-            if (this.kinoteatr == null)
+            if (time.Text == "" || TimeSpan.TryParse(time.Text, out timeAfisha)==false)
             {
-                KinoteatrContext newKinoteatr = new KinoteatrContext(
+                MessageBox.Show("Не заполнено время");
+                return;
+            }
+            if (price.Text == "" || int.TryParse(price.Text, out pprice) == false)
+            {
+                MessageBox.Show("Не заполнена стоиомсть");
+                return;
+            }
+            
+            if(this.afisha == null)
+            {
+                AfishaContext newAfisha = new AfishaContext(
                     0,
-                    name.Text,
+                    kinoteatrs.SelectedItem,
                     countZalInt,
                     countInt);
                 newKinoteatr.Add();
