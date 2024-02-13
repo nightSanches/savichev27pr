@@ -27,7 +27,7 @@ namespace savichev27pr
         public MainWindow()
         {
             InitializeComponent();
-            OpenPage(new Pages.Afisha.Main());
+            OpenPage(new Pages.Kinoteatr.Main());
             init = this;
         }
 
@@ -36,5 +36,14 @@ namespace savichev27pr
             frame.Navigate(Page);
         }
 
+        private void gokino(object sender, RoutedEventArgs e)
+        {
+            frame.Navigate(new Pages.Kinoteatr.Main());
+        }
+
+        private void goafisha(object sender, RoutedEventArgs e)
+        {
+            frame.Navigate(new Pages.Afisha.Main());
+        }
     }
 }

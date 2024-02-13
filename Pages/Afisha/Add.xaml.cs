@@ -52,8 +52,9 @@ namespace savichev27pr.Pages.Afisha
 
         private void AddRecord(object sender, RoutedEventArgs e)
         {
+            DateTime dateAfisha;
             TimeSpan timeAfisha;
-            int pprice = -1
+            int pprice = -1;
             if (name.Text == "")
             {
                 MessageBox.Show("Не заполнено наименоваие");
@@ -69,7 +70,7 @@ namespace savichev27pr.Pages.Afisha
                 MessageBox.Show("Не заполнена дата");
                 return;
             }
-            if (time.Text == "" || TimeSpan.TryParse(time.Text, out timeAfisha)==false)
+            if (time.Text == "" || TimeSpan.TryParse(time.Text, out timeAfisha) == false)
             {
                 MessageBox.Show("Не заполнено время");
                 return;
@@ -79,28 +80,33 @@ namespace savichev27pr.Pages.Afisha
                 MessageBox.Show("Не заполнена стоиомсть");
                 return;
             }
-            
+            DateTime.TryParse(date.Text, out dateAfisha);
+            dateAfisha.Add(timeAfisha);
+
+
             if(this.afisha == null)
             {
                 AfishaContext newAfisha = new AfishaContext(
                     0,
-                    kinoteatrs.SelectedItem,
-                    countZalInt,
-                    countInt);
-                newKinoteatr.Add();
+                    AllKinoteatrs.Find(x => x.Name == kinoteatrs.SelectedItem).Id ,
+                    name.Text,
+                    Convert.ToDateTime(time.Text),
+                    pprice);
+                newAfisha.Add();
                 MessageBox.Show("Запись успешно добавлена");
             }
             else
             {
-                kinoteatr = new KinoteatrContext(
-                    kinoteatr.Id,
+                afisha = new AfishaContext(
+                    afisha.Id,
+                    AllKinoteatrs.Find(x => x.Name == kinoteatrs.SelectedItem).Id,
                     name.Text,
-                    countZalInt,
-                    countInt);
-                kinoteatr.Update();
+                    dateAfisha,
+                    pprice);
+                afisha.Update();
                 MessageBox.Show("Запись успешно обновлена");
             }
-            MainWindow.init.OpenPage(new Pages.Kinoteatr.Main());
+            MainWindow.init.OpenPage(new Pages.Afisha.Main());
         }
     }
 }

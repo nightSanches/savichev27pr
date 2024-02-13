@@ -33,7 +33,7 @@ namespace savichev27pr.Classes
 
         public void Add()
         {
-            string SQL = $"INSERT INTO `afisha`(`id_kinoteatr`, `name`, `time`, `price`) VALUES ('{this.IdKinoteatr}','{this.Name}','{this.Time}','{this.Price}')";
+            string SQL = $"INSERT INTO `afisha`(`id_kinoteatr`, `name`, `time`, `price`) VALUES ('{this.IdKinoteatr}','{this.Name}','{this.Time.ToString("yyyy-MM-dd HH:mm:ss")}','{this.Price}')";
             MySqlConnection connection = Connection.OpenConnection();
             Connection.Query(SQL, connection);
             Connection.CloseConnection(connection);
@@ -41,7 +41,7 @@ namespace savichev27pr.Classes
 
         public void Update()
         {
-            string SQL = $"UPDATE `afisha` SET `id_kinoteatr`='{this.IdKinoteatr}',`name`='{this.Name}',`time`='{this.Time}',`price`='{this.Price}' WHERE `id`='{this.Id}'";
+            string SQL = $"UPDATE `afisha` SET `id_kinoteatr`='{this.IdKinoteatr}',`name`='{this.Name}',`time`='{this.Time.ToString("yyyy-MM-dd HH:mm:ss")}',`price`='{this.Price}' WHERE `id`='{this.Id}'";
             MySqlConnection connection = Connection.OpenConnection();
             Connection.Query(SQL, connection);
             Connection.CloseConnection(connection);
