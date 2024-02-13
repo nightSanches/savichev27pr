@@ -1,5 +1,5 @@
 ﻿using savichev27pr.Classes;
-using savichev27pr.Models;
+using savichev27pr.Pages.Kinoteatr.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,26 +15,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace savichev27pr
+namespace savichev27pr.Pages.Afisha
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для Main.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Main : Page
     {
-        public static MainWindow init; 
-
-        public MainWindow()
+        List<AfishaContext> AllAfisha = AfishaContext.Select();
+        public Main()
         {
             InitializeComponent();
-            OpenPage(new Pages.Kinoteatr.Main());
-            init = this;
+            foreach (AfishaContext item in AllAfisha)
+            {
+                parent.Children.Add(new Items.Item(item, this));
+            }
         }
 
-        public void OpenPage(Page Page)
+        private void AddRecord(object sender, RoutedEventArgs e)
         {
-            frame.Navigate(Page);
+            MainWindow.init.OpenPage(new Pages.Afisha.Add());
         }
-
     }
 }

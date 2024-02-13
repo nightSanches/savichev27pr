@@ -1,5 +1,4 @@
 ﻿using savichev27pr.Classes;
-using savichev27pr.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,26 +14,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace savichev27pr
+namespace savichev27pr.Pages.Afisha.Items
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для Item.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Item : UserControl
     {
-        public static MainWindow init; 
-
-        public MainWindow()
+        public Item(AfishaContext item, Main main)
         {
             InitializeComponent();
-            OpenPage(new Pages.Kinoteatr.Main());
-            init = this;
         }
-
-        public void OpenPage(Page Page)
-        {
-            frame.Navigate(Page);
-        }
-
     }
 }
