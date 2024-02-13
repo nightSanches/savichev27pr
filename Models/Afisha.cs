@@ -14,13 +14,13 @@ namespace savichev27pr.Models
         public DateTime Time { get; set; }
         public int Price { get; set; }
 
-        public Afisha(int id, int idKinoteatr, string name, DateTime time, int price)
+        public Afisha(int Id, int IdKinoteatr, string Name, DateTime Time, int Price)
         {
-            Id = id;
-            IdKinoteatr = idKinoteatr;
-            Name = name;
-            Time = time;
-            Price = price;
+            this.Id = Id;
+            this.IdKinoteatr = IdKinoteatr;
+            this.Name = Name;
+            this.Time = Time;
+            this.Price = Price;
         }
     }
 }

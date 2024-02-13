@@ -13,12 +13,12 @@ namespace savichev27pr.Models
         public int CountZal {  get; set; }
         public int Count { get; set;}
 
-        public Kinoteatr(int id, string name, int countZal, int count)
+        public Kinoteatr(int Id, string Name, int CountZal, int Count)
         {
-            Id = id;
-            Name = name;
-            CountZal = countZal;
-            Count = count;
+            this.Id = Id;
+            this.Name = Name;
+            this.CountZal = CountZal;
+            this.Count = Count;
         }
     }
 }
